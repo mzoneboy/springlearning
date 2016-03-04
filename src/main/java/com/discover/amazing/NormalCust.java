@@ -22,12 +22,23 @@ public class NormalCust implements Cust {
 		
 	}
 	
+	private double[] fees;
+	
+	
 	// 通过构造方法注入
 	/*public NormalCust (double money) {
 		this.money = money;
 	}*/
 	
+	public void setFees(double[] fees) {
+		this.fees = fees;
+	}
+
 	public void recharge() {
+		for(int i=0; i<fees.length; i++)
+		{
+			this.money += fees[i];
+		}
 		System.out.println("Cust recharges " + this.money);
 	}
 

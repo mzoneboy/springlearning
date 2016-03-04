@@ -18,11 +18,20 @@
 	 <bean id="MyMongoTemplate" class="com.discover.amazing.nosql.mongo.MyMongoTemplate">     
     </bean>
     
-    <bean id="NormalCust" class="com.discover.amazing.NormalCust"
+    <!--单个属性的装载  -->
+    <!--<bean id="NormalCust" class="com.discover.amazing.NormalCust"
         p:money="15"/>
-       <!--  <constructor-arg name="money" value="15"></constructor-arg>
+         <constructor-arg name="money" value="15"></constructor-arg>
         </bean> -->
-        
+    
+    <bean id="NormalCust" class="com.discover.amazing.NormalCust">
+	<property name="fees">
+		<list>
+			<value>50</value>
+			<value>100</value>
+		</list>
+	</property>
+</bean>
     
     <!-- <bean id="MongoDBTest" class="com.discover.amazing.MongoDBTest"></bean>   -->
 	
