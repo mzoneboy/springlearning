@@ -30,12 +30,12 @@ import com.discover.amazing.nosql.mongo.MyMongoTemplate;
  * @see com.discover.amazing <br>
  */
 @ContextConfiguration({"/META-INF/spring/amazing-base.xml"})
-//@RunWith(SpringJUnit4ClassRunner.class)
+@RunWith(SpringJUnit4ClassRunner.class)
 public class MongoDBTest extends MongoDAO {
     @Autowired
     MyMongoTemplate myMongoTemplate;
     
-    //@Test
+    @Test
     public void findAll() {
         List<SubsDto> list = myMongoTemplate.findAll(SubsDto.class, "Subs");
         String string = "";
