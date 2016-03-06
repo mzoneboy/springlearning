@@ -10,7 +10,7 @@
 		   http://www.springframework.org/schema/context/spring-context-3.0.xsd
 		   http://www.springframework.org/schema/aop
 		   http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
-		   
+    <!-- 让定义的bean能去识别bean对应的类中的注解 -->
     <context:annotation-config/>
     
 	<bean id="Subs" class="com.discover.amazing.Subs"/>

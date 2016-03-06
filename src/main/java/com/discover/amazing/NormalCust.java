@@ -4,7 +4,7 @@ import org.springframework.stereotype.Component;
 
 import com.discover.amazing.inf.Cust;
 
-@Component
+@Component("NormalCust")
 public class NormalCust implements Cust {
 
 	private double money;
@@ -40,6 +40,10 @@ public class NormalCust implements Cust {
 			this.money += fees[i];
 		}
 		System.out.println("Cust recharges " + this.money);
+	}
+	
+	public void checkScan() {
+		System.out.println("scan NormalCust.class and wire it into a bean...");
 	}
 
 }
