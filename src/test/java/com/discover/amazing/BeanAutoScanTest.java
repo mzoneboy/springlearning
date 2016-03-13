@@ -18,5 +18,6 @@ public class BeanAutoScanTest {
 		double[] fees = {100,30,50};
 		cust.setFees(fees);
 		cust.recharge();
+		cust.recharge(-300);
 	}
 }

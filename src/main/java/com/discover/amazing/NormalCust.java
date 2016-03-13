@@ -46,4 +46,9 @@ public class NormalCust implements Cust {
 		System.out.println("scan NormalCust.class and wire it into a bean...");
 	}
 
+	public void recharge(double money) {
+		
+		
+	}
+
 }

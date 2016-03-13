@@ -29,7 +29,7 @@ import org.junit.runner.RunWith;
  * @see cn.javass.spring.chapter2 <br>
  */
 @ContextConfiguration({"/META-INF/spring/amazing-base.xml"})
-//@RunWith(SpringJUnit4ClassRunner.class)
+@RunWith(SpringJUnit4ClassRunner.class)
 public class AutoWiredTest {
     @Autowired
     Subs subs;
@@ -53,7 +53,7 @@ public class AutoWiredTest {
      * @author yang.xiao(0027008536)<br>
      * @taskId <br> <br>
      */
-    //@Test
+    @Test
     public void testAOP() {
         subs.createSub();
     }
