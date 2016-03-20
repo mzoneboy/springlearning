@@ -5,6 +5,11 @@
  ****************************************************************************************/
 package com.discover.amazing;
 
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.bson.types.ObjectId;
@@ -56,17 +61,44 @@ public class MongoDBTest extends MongoDAO {
         System.out.println(dto.getSubsId()+","+dto.getPrefix()+","+dto.getAccNbr());
     }
     
-    
+    //@Test
     public void saveOne() {
         SubsDto dto = new SubsDto();
-        dto.setSubsId(115L);
+        dto.setSubsId(104L);
         dto.set_id(dto.getSubsId());
         dto.setPrefix("86");
         dto.setAccNbr("13901230035");
-        dto.setAcctId(1L);
-        dto.setCustId(1L);
+        dto.setAcctId(2L);
+        dto.setCustId(2L);
         myMongoTemplate.save("Subs", dto);
     }
+    
+    @Test
+    public void saveList() {
+    	
+    	
+    	
+		List<SubsDto> subsList = new ArrayList<SubsDto>();
+		for (int i = 0; i < 1000000; i++) {
+			SubsDto dto = new SubsDto();
+	        dto.setSubsId(1L+i);
+	        dto.set_id(dto.getSubsId());
+	        dto.setPrefix("86");
+	        dto.setAccNbr("13901230036");
+	        dto.setAcctId(2L);
+	        dto.setCustId(2L);
+	        subsList.add(dto);
+	        //myMongoTemplate.save("Subs", dto);
+		}
+		
+		Date currentTime = new Date();
+    	long begin = currentTime.getTime();
+    	
+		myMongoTemplate.batchInsert("Subs", subsList);
+		currentTime = new Date();
+		Long addTime = currentTime.getTime()-begin;
+		System.out.println("Insert hao shi:"+addTime+"............");
+	}
     
     //@Test
     public void removeOne() {

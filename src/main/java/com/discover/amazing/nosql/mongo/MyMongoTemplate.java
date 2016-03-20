@@ -5,6 +5,7 @@
  ****************************************************************************************/
 package com.discover.amazing.nosql.mongo;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -14,6 +15,7 @@ import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 
+import com.discover.amazing.model.SubsDto;
 import com.mongodb.BasicDBObject;
 import com.mongodb.DBObject;
 
@@ -54,6 +56,10 @@ public class MyMongoTemplate extends MongoDAO {
     public void save(String collectionName, Object objectToSave) {
         getMyMongoTemplate().save(objectToSave, collectionName);
     }
+    
+    public void batchInsert(String collectionName, Collection<? extends Object> objectToSave) {
+    	getMyMongoTemplate().insert(objectToSave, collectionName);
+	}
     
     public void remove(Object value, String collectionName) {
     	Query query = new Query(Criteria.where("_id").is(value));
