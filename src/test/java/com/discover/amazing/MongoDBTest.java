@@ -27,11 +27,10 @@ import com.discover.amazing.nosql.mongo.MyMongoTemplate;
 /** 
  * <Description> <br> 
  *  
- * @author yang.xiao(0027008536)<br>
+ * @author<br>
  * @version 1.0<br>
  * @taskId <br>
  * @CreateDate 2016年2月26日 <br>
- * @since V7.3<br>
  * @see com.discover.amazing <br>
  */
 @ContextConfiguration({"/META-INF/spring/amazing-base.xml"})
@@ -40,7 +39,7 @@ public class MongoDBTest extends MongoDAO {
     @Autowired
     MyMongoTemplate myMongoTemplate;
     
-    @Test
+    //@Test
     public void findAll() {
         List<SubsDto> list = myMongoTemplate.findAll(SubsDto.class, "Subs");
         String string = "";
@@ -73,7 +72,7 @@ public class MongoDBTest extends MongoDAO {
         myMongoTemplate.save("Subs", dto);
     }
     
-    @Test
+    //@Test
     public void saveList() {
     	
     	
