@@ -18,17 +18,18 @@ import com.discover.amazing.concurrent.IncTask;
 @RunWith(SpringJUnit4ClassRunner.class)
 public class ThreadTest {
 	@Test
-	public void testThread() {
-		
+	public void testThread() throws InterruptedException {
+	    IncTask incThread = new IncTask();
 		//incThread.run();
 		ExecutorService executor = Executors.newFixedThreadPool(3);
-		/*ThreadPoolExecutor executor = new ThreadPoolExecutor(5, 10, 200, TimeUnit.MILLISECONDS,
-                new ArrayBlockingQueue<Runnable>(5));*/
+		/*ThreadPoolExecutor executor = new ThreadPoolExecutor(3, 3, 200, TimeUnit.MILLISECONDS,
+                new ArrayBlockingQueue<Runnable>(3));*/
 		for(int i =0;i<6;i++){
-			IncTask incThread = new IncTask();
+			//incThread.run();
 			executor.execute(incThread);
 		}
 		
-		executor.shutdown();
+		//executor.shutdown();
+		Thread.sleep(5000);
 	}
 }

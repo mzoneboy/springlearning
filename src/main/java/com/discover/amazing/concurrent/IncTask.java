@@ -17,15 +17,15 @@ public class IncTask  implements Runnable {
 		System.out.println("hello_____________"+thread.getId()+":"+thread.getName());
 
 		try{
-			/*Query query = new Query(Criteria.where("subsId").is(1));
+			Query query = new Query(Criteria.where("subsId").is(100));
 			Update update = new Update();
 			update.inc("custId", 1);
 			ApplicationContext applicationContext = new ClassPathXmlApplicationContext("/META-INF/spring/amazing-mongodb.xml");
 			MongoTemplate mongoTemplate = applicationContext.getBean("mongoTemplate", MongoTemplate.class);
-			SubsDto subsDto = mongoTemplate.findOne(query, SubsDto.class);*/
+			SubsDto subsDto = mongoTemplate.findOne(query, SubsDto.class);
 			System.out.println("haha_______");
-			//mongoTemplate.findAndModify(query, update, SubsDto.class, "Subs");
-			Thread.sleep(1000);
+			mongoTemplate.findAndModify(query, update, SubsDto.class, "Subs");
+			//Thread.sleep(1000);
 		} catch (Exception ex) {
 			System.out.println(ex.getMessage());
 		}
