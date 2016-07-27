@@ -17,7 +17,7 @@ public class IncTask  implements Runnable {
 		System.out.println("hello_____________"+thread.getId()+":"+thread.getName());
 
 		try{
-			Query query = new Query(Criteria.where("subsId").is(100));
+			Query query = new Query(Criteria.where("subsId").is(1));
 			Update update = new Update();
 			update.inc("custId", 1);
 			ApplicationContext applicationContext = new ClassPathXmlApplicationContext("/META-INF/spring/amazing-mongodb.xml");
