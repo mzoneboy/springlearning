@@ -16,8 +16,9 @@
     <context:component-scan base-package="com.discover.amazing"/>
 	<aop:config  proxy-target-class="true">
 		<aop:aspect ref="Verifier">
-			<aop:pointcut id="recharge" expression="execution(* com.discover.amazing.inf.Cust.recharge(double)) and args(money)"/>
-			<aop:after pointcut-ref="recharge" method="verifyMoney" arg-names="money"/>
+			<aop:pointcut id="recharge" expression="execution(* com.discover.amazing.inf.Cust.recharge(..))"/>
+			<aop:before pointcut-ref="recharge" method="verifyMoney"/>
+			<!--  <aop:after pointcut-ref="recharge" method="verifyRecharge" arg-names="subsId, money"/>-->
 		</aop:aspect>
     </aop:config>
 </beans>
