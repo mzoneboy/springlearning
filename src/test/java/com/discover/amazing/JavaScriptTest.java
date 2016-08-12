@@ -35,12 +35,12 @@ public class JavaScriptTest {
 
     }
     
-    public static boolean dynamicCompare(String leftVal, String rightVal, String oper) throws ScriptException {
+    public static String dynamicCompare(String leftVal, String rightVal, String oper) throws ScriptException {
         String str = leftVal + oper + rightVal;
         ScriptEngineManager scriptEngineManager = new ScriptEngineManager();
         ScriptEngine scriptEngine = scriptEngineManager.getEngineByName("js");
         //scriptEngine.put("a", 4);
-        return (boolean)scriptEngine.eval(str);
+        return scriptEngine.eval(str).toString();
     }
 	
 	public static void execScriptFun(String money) throws NoSuchMethodException, ScriptException {

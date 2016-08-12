@@ -25,16 +25,15 @@
         </bean> -->
     
     <bean id="NormalCust" class="com.discover.amazing.NormalCust">
-	<property name="fees">
-		<list>
-			<value>50</value>
-			<value>100</value>
-		</list>
-	</property>
-</bean>
+		<property name="fees">
+			<list>
+				<value>50</value>
+				<value>100</value>
+			</list>
+		</property>
+    </bean>
     
     <!-- <bean id="MongoDBTest" class="com.discover.amazing.MongoDBTest"></bean>   -->
-	
 	<aop:config>
 		<aop:aspect ref="SubsOper">
 			<aop:pointcut id="create" expression="execution(* *.createSub(..))" />

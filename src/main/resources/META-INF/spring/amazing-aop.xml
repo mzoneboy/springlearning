@@ -5,20 +5,14 @@
 	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:aop="http://www.springframework.org/schema/aop"
 	xsi:schemaLocation="
+	       http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context.xsd
 	       http://www.springframework.org/schema/beans
 	       http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
-		   http://www.springframework.org/schema/context
-		   http://www.springframework.org/schema/context/spring-context-3.0.xsd
 		   http://www.springframework.org/schema/aop
 		   http://www.springframework.org/schema/aop/spring-aop-3.0.xsd"
 		   >
 		   
     <context:component-scan base-package="com.discover.amazing"/>
-	<aop:config  proxy-target-class="true">
-		<aop:aspect ref="Verifier">
-			<aop:pointcut id="recharge" expression="execution(* com.discover.amazing.inf.Cust.recharge(..))"/>
-			<aop:before pointcut-ref="recharge" method="verifyMoney"/>
-			<aop:after pointcut-ref="recharge" method="verifyRecharge"/>
-		</aop:aspect>
-    </aop:config>
+	<aop:aspectj-autoproxy proxy-target-class="true"/>
 </beans>
