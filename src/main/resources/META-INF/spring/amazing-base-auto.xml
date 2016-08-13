@@ -14,7 +14,7 @@
 		   >
 		   
     <context:component-scan base-package="com.discover.amazing"/>
-	<aop:config  proxy-target-class="true">
+	<aop:config proxy-target-class="true">
 		<aop:aspect ref="Verifier">
 			<aop:pointcut id="recharge" expression="execution(* com.discover.amazing.inf.Cust.recharge(..))"/>
 			<aop:before pointcut-ref="recharge" method="verifyMoney"/>
