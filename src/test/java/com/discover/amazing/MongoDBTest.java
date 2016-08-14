@@ -46,9 +46,9 @@ public class MongoDBTest extends MongoDAO {
         
     }
     
-    //@Test
+    @Test
     public void findOne() {
-        List<SubsDto> list = myMongoTemplate.findByCondition("accNbr", "13900002100", SubsDto.class, "Subs");
+        List<SubsDto> list = myMongoTemplate.findByCondition("accNbr", "13901230036", SubsDto.class, "Subs");
         SubsDto dto = list.get(0);
         System.out.println(dto.getSubsId()+","+dto.getPrefix()+","+dto.getAccNbr());
     }
