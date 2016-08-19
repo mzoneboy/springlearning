@@ -11,7 +11,7 @@ public class Client {
 		ICust realCust = new Cust("Michael");
 		
 		// 代理开始工作
-		/*ICust proxyCust = new CustProxy(realCust);*/
+		ICust proxyCust = new CustProxy(realCust);
 		
 		// JDK动态代理
 		/*InvocationHandler myInvocationHandler = new InvocationHandlerImpl(realCust);
@@ -20,8 +20,8 @@ public class Client {
 		ICust proxyCust = (ICust)Proxy.newProxyInstance(classLoader, realCust.getClass().getInterfaces(), myInvocationHandler);*/
 		
 		// Cglib动态代理
-		MethodInterceptorImpl methodInterceptor = new MethodInterceptorImpl("Michael");
-		Cust proxyCust = (Cust)methodInterceptor.newProxyInstance(new Cust());
+		/*MethodInterceptorImpl methodInterceptor = new MethodInterceptorImpl("Michael");
+		Cust proxyCust = (Cust)methodInterceptor.newProxyInstance(new Cust());*/
 		
 		proxyCust.recharge(13067895521L, 100);
 	}
