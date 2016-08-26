@@ -21,7 +21,7 @@ import org.springframework.stereotype.Component;
  */
 @Aspect
 @Component("VerifierAopAnnotation")
-public class Verifier implements IVerifier {
+public class Verifier  {
 	public Verifier() {
 		// TODO Auto-generated constructor stub
 	}
