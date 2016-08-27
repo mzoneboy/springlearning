@@ -50,5 +50,19 @@ public class NormalCust implements Cust {
 		
 		System.out.println("recharge begin...");
 	}
+	
+    public void recharge1(Long subsId, double money) throws Exception {
+		if(money<=0){
+			throw new Exception("before recharge, The recharge money " + money + " is invalid...");
+		} else {
+			System.out.println("before recharge, The recharge money " + money + " is valid...");
+		}
+		
+		// TODO:save money
+		System.out.println("recharge begin...");
+		
+		// find money from database where subsId is subsId
+		System.out.println("after recharge, find subsId "+subsId+" to verify the money from database...");
+	}
 
 }
