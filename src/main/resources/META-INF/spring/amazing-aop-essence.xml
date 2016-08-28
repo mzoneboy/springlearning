@@ -13,7 +13,9 @@
 		   http://www.springframework.org/schema/aop/spring-aop-3.0.xsd"
 		   >
     <context:annotation-config/>   
+    <!--需要使用AOP切面增强的对象-->  
     <bean id="custTarget" class="com.discover.amazing.proxy.Cust"/>
+    <!--配置通知器，通知器的实现定义了需要对目标对象进行的增强行为-->  
     <bean id="afterAdvice" class="com.discover.amazing.proxy.AopAfterAdvice"/>
     <bean id="custAspect" class="org.springframework.aop.framework.ProxyFactoryBean">   
         <property name="proxyInterfaces" value="com.discover.amazing.proxy.ICust"/>   
