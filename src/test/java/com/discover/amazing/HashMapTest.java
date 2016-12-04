@@ -1,15 +1,10 @@
 
 package com.discover.amazing;
 
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
-
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import java.util.WeakHashMap;
 /** 
  * <Description> <br> 
  *  
@@ -18,27 +13,39 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
  * @taskId <br>
  * @CreateDate 2016年2月18日 <br>
  */
-@ContextConfiguration({"/META-INF/spring/amazing-base.xml"})
-@RunWith(SpringJUnit4ClassRunner.class)
 public class HashMapTest {
-	@Test
-    public void testEntrySet() {
-    	Map<Integer, Object> testMap = new HashMap<Integer, Object>();
-    	//1000W 92s
-        for(int i=0; i<10000; i++){
-        	testMap.put(i, new Object());
+	
+    public static void main(String[] args) { 
+        Map<Thread, String> weakHashMap = new WeakHashMap<Thread, String>();
+        
+        Thread thread1 = new Thread();
+        Thread thread2 = new Thread();
+        weakHashMap.put(thread1, "thread1");
+        weakHashMap.put(thread2, "thread2");
+        thread1 = null;
+        System.gc();
+        
+        for(Entry<Thread, String> entry:weakHashMap.entrySet()){
+        	//System.out.println(entry.getValue());
+        	entry.setValue(null);
         }
         
-        Date beginDate = new Date();
-        for(Entry<Integer, Object> entrySet:testMap.entrySet()){
-        	
+        Map<Thread, String> hashMap = new HashMap<Thread, String>();
+        
+        Thread thread3 = new Thread();
+        Thread thread4 = new Thread();
+        hashMap.put(thread3, "thread3");
+        hashMap.put(thread4, "thread4");
+        thread3 = null;
+        System.gc();
+        
+        for(Entry<Thread, String> entry:hashMap.entrySet()){
+        	System.out.println(entry.getValue());
         }
         
-        Date endDate = new Date();
-        
-        long timeSpan = endDate.getTime()-beginDate.getTime();
-        
-        System.out.println("testEntrySet____timeSpan is " + timeSpan);
+        for(Entry<Thread, String> entry:weakHashMap.entrySet()){
+        	System.out.println(entry.getValue());
+        }
     }
-
+	
 }
